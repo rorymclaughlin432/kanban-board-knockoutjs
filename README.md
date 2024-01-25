@@ -4,7 +4,7 @@ Built with KnockoutJS, this simple app shows how to move tasks/tickets from 'To 
 
 This is made in KnockoutJS's MVVM pattern/framework.
 
-##To Run App
+## To Run App
 
 In terminal type below:
 
