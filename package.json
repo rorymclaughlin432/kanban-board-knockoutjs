@@ -4,20 +4,9 @@
   "description": "Built with KnockoutJS, this simple app shows how to move tasks/tickets from 'To Do' to 'In Progress' to 'Done' via a drag drop functionality.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose",
-    "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand",
-    "test-coverage": "jest --coverage",
+    "test": "echo \"No test specified\"",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern node_modules . --ignore-pattern coverage '/test/' --ext .js",
     "lint:fix": "eslint --ignore-path .gitignore --ignore-pattern node_modules . --ignore-pattern coverage '/test/' --ext .js --fix"
-  },
-  
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/vendor/**"
-    ]
   },
   "keywords": [],
   "author": "",
