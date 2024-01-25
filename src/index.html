@@ -23,6 +23,21 @@
                         dragZone: { name: 'simple.todoCard' }"
             ></li>
           </ul>
+           <!-- <div class="addTask">
+            <button class="add-ticket-button" data-bind="click: addTask">Add Task</button>
+          </div>
+          <div class="trash" data-bind ="visible:dragging,
+            dragover: {
+                preventDefault: true,
+                stopPropagation: false
+            },
+            drop: {
+                preventDefault: true,
+                stopPropagation: false,
+                handler: function(data, event) {
+                    simple.deleteTask(data);
+                }
+     }"> <span>Delete Task</span> </div>  -->
                   </div>
         <div class="zones">
           <h1>In Progress</h1>
