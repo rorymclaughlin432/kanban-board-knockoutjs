@@ -4,6 +4,7 @@
   "description": "Built with KnockoutJS, this simple app shows how to move tasks/tickets from 'To Do' to 'In Progress' to 'Done' via a drag drop functionality.",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
