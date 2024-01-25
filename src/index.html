@@ -6,24 +6,39 @@
   </head>
   <body>
     <div class="board">
-        <div class="simple" data-bind="with: simple">
-          <div class="zones">
-            <h1>To Do</h1>
-            <ul
-              class="todoCard"
-              data-bind="foreach: todoCard, 
-                          dropZone: { 
-                            accepts: 'simple.targetDone', 
-                            drop: doneBackToDo
-                          },
-                          "
-            >
-              <li
-                data-bind="text: $data, 
-                          dragZone: { name: 'simple.todoCard' }"
-              ></li>
-            </ul>
-        </div>
+      <div class="simple" data-bind="with: simple">
+        <div class="zones">
+          <h1>To Do</h1>
+          <ul
+            class="todoCard"
+            data-bind="foreach: todoCard, 
+                        dropZone: { 
+                          accepts: 'simple.targetDone', 
+                          drop: doneBackToDo
+                        },
+                        "
+          >
+            <li
+              data-bind="text: $data, 
+                        dragZone: { name: 'simple.todoCard' }"
+            ></li>
+          </ul>
+           <!-- <div class="addTask">
+            <button class="add-ticket-button" data-bind="click: addTask">Add Task</button>
+          </div>
+          <div class="trash" data-bind ="visible:dragging,
+            dragover: {
+                preventDefault: true,
+                stopPropagation: false
+            },
+            drop: {
+                preventDefault: true,
+                stopPropagation: false,
+                handler: function(data, event) {
+                    simple.deleteTask(data);
+                }
+     }"> <span>Delete Task</span> </div>  -->
+                  </div>
         <div class="zones">
           <h1>In Progress</h1>
           <ul
@@ -45,10 +60,10 @@
           <h1>Done</h1>
           <ul
             data-bind="foreach: targetDone, 
-                        dropZone: [{ 
-                          accepts: 'simple.todoCard', 'simple.targetInProgress'
-                          drop: toDoToDone, inProgressMoveToDone
-                        }],
+            dropZone: { 
+                accepts: 'simple.targetInProgress', 
+                drop: inProgressMoveToDone
+              }
                         "
           >
             <li
@@ -62,6 +77,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
-    <script src="src/js/app.js"></script>
+    <script src="../lib/knockout.dragdrop.js"></script>
+    <script src="./js/viewModel.js"></script>
   </body>
 </html>
