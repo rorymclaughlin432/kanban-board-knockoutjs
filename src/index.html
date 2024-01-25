@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kanban Board</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Kanban Board</h1>
+        <div data-bind="foreach: columns">
+            <div data-bind="text: title"></div>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
+</body>
+</html>
