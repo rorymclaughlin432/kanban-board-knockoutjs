@@ -8,7 +8,7 @@ This is made in KnockoutJS's MVVM pattern/framework.
 
 In terminal type below:
 
-npm install && npm npm install express
+npm install && npm install express
 
 then 
 
