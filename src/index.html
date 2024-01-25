@@ -45,10 +45,10 @@
           <h1>Done</h1>
           <ul
             data-bind="foreach: targetDone, 
-                        dropZone: [{ 
-                          accepts: 'simple.todoCard', 'simple.targetInProgress'
-                          drop: toDoToDone, inProgressMoveToDone
-                        }],
+            dropZone: { 
+                accepts: 'simple.targetInProgress', 
+                drop: inProgressMoveToDone
+              }
                         "
           >
             <li
