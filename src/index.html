@@ -12,47 +12,71 @@
           <ul
             class="todoCard"
             data-bind="foreach: todoCard, 
-                        dropZone: { 
-                          accepts: 'simple.targetDone', 
-                          drop: doneBackToDo
-                        },
+                            dropZone: { 
+                            accepts: 'simple.targetDone', 
+                            drop: doneBackToDo
+                            },
+                            dropZone: {
+                                accepts: 'simple.targetInProgress',
+                                drop: inProgressMoveBackToToDo
+                                },
                         "
           >
             <li
-              data-bind="text: $data, 
-                        dragZone: { name: 'simple.todoCard' }"
-            ></li>
+              data-bind="text: value, 
+                        css: { dragging: dragging },
+                        dragZone: { name: 'simple.todoCard' },
+                        dragStart: $parent.dragStart,
+                        dragEnd: $parent.dragEnd,
+                        click: $parent.selectToDoSingleItem,
+                        checked: $parent.isSelected($data),
+                        dragEvents: {
+                            accepts: 'simple',
+                            dragOver: $parent.reorder,
+                            data: { items: $parent.todoCard, item: $data }
+                          }
+                        "
+            >
+          </li>
+              <input
+                <input
+                class="taskCheckbox"
+                type="checkbox"
+                data-bind="checked: isSelected"
+              />
           </ul>
-           <!-- <div class="addTask">
-            <button class="add-ticket-button" data-bind="click: addTask">Add Task</button>
+          <div class="taskButtons">
+            <button class="addTask" data-bind="click: addItemToToDo">
+              Add a Task
+            </button>
+            <button class="deleteTask" data-bind="click: deleteItemFromToDo">
+              Delete a Task
+            </button>
           </div>
-          <div class="trash" data-bind ="visible:dragging,
-            dragover: {
-                preventDefault: true,
-                stopPropagation: false
-            },
-            drop: {
-                preventDefault: true,
-                stopPropagation: false,
-                handler: function(data, event) {
-                    simple.deleteTask(data);
-                }
-     }"> <span>Delete Task</span> </div>  -->
-                  </div>
+        </div>
+
         <div class="zones">
           <h1>In Progress</h1>
           <ul
             data-bind="foreach: targetInProgress, 
                         dropZone: { 
-                          accepts: 'simple.todoCard', 
-                          drop: toDoToInProgress
+                            accepts: 'simple.todoCard', 
+                            drop: toDoToInProgress 
                         },
-                        
                         "
           >
             <li
-              data-bind="text: $data, 
-                        dragZone: { name: 'simple.targetInProgress' }"
+              data-bind="text: value,
+                        css: { dragging: dragging },
+                        dragZone: { name: 'simple.targetInProgress' },
+                        dragStart: $parent.dragStart,
+                        dragEnd: $parent.dragEnd,
+                        
+                        dragEvents: {
+                            accepts: 'simple',
+                            dragOver: $parent.reorder,
+                            data: { items: $parent.targetInProgress, item: $data }
+                          }"
             ></li>
           </ul>
         </div>
@@ -67,8 +91,19 @@
                         "
           >
             <li
-              data-bind="text: $data, 
-                        dragZone: { name: 'simple.targetDone' }"
+              data-bind="text: value, 
+                        dragZone: { name: 'simple.targetDone' }
+                        text: value, 
+                        css: { dragging: dragging },
+                        dragZone: { name: 'simple' },
+                        dragStart: $parent.dragStart,
+                        dragEnd: $parent.dragEnd,
+                        
+                        dragEvents: {
+                            accepts: 'simple',
+                            dragOver: $parent.reorder,
+                            data: { items: $parent.targetDone, item: $data }
+                          }"
             ></li>
           </ul>
         </div>
@@ -76,6 +111,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./lib/jquery-1.12.3.js"></script>
     <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
     <script src="../lib/knockout.dragdrop.js"></script>
     <script src="./js/viewModel.js"></script>
