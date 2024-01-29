@@ -170,11 +170,11 @@ li .label {
 }
 
 li:hover {
-  background: #fff;
+  background: #007fff ;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #62bd89;
+  border: 1px solid rgb(47, 99, 194);
   text-align: center;
-  color: black;
+  color: white;
   border-radius: 7px;
   margin: 10px;
   padding: 10px;
