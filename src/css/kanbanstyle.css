@@ -87,6 +87,12 @@ ul.drop-rejected {
   margin: 10px;
   padding: 10px;
   font-weight: bold;
+  transition-duration: 0.4s;
+}
+
+.addTask:hover {
+  background-color: #62bd89;
+  color: white;
 }
 
 .taskButtons {
@@ -104,6 +110,12 @@ ul.drop-rejected {
   margin: 10px;
   padding: 10px;
   font-weight: bold;
+  transition-duration: 0.4s;
+}
+
+.deleteTask:hover {
+  background-color: pink;
+  color: white;
 }
 
 .taskCheckbox {
@@ -138,35 +150,47 @@ ul.drop-rejected {
   font-weight: bold;
 }
 
- li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    border-radius: 5px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    cursor: pointer;
-  }
-  li:first-child {
-    margin-top: 0;
-  }
-  li .label {
-    margin-left: 6px;
-  }
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  cursor: pointer;
+}
+li:first-child {
+  margin-top: 0;
+}
+li .label {
+  margin-left: 6px;
+}
 
-  li .selected {
-    background-color: #62bd89;
-    border: 1px solid rgb(0, 95, 0);
-    text-align: center;
-    color: black;
-    border-radius: 7px;
-    margin: 10px;
-    padding: 10px;
-    font-weight: bold;
-  }
+li:hover {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #62bd89;
+  text-align: center;
+  color: black;
+  border-radius: 7px;
+  margin: 10px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+ul.todoCard li :active {
+  background: #800000;
+  color: white;
+}
+
+ul.todoCard li:active {
+  background: #62abbd;
+  color: white;
+}
+
 .drag-handle {
   position: absolute;
   top: 0px;
@@ -181,6 +205,11 @@ ul.drop-rejected {
 }
 .dragging {
   filter: "alpha(opacity=50)";
+}
+
+.isSelected {
+  background: #62abbd;
+  color: white;
 }
 
 /* .scroll-while-dragging .zones {
