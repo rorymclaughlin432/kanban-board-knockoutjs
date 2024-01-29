@@ -156,43 +156,16 @@
     };
   
     DragDropView.prototype.selectToDoSingleItem = function (item) {
-      //console.log(item);
-      if (item.isSelected()) {
-        console.log("item is selected");
-        var selectItem = confirm( `Are you sure you want to select ${item.value}?`
-        );
-        if (selectItem) {
-          clearSelection(this.todoCard);
-          item.isSelected(false);
-          
-        }
-      } else {
-        console.log("item is not selected");
+      if (item.isSelected() == false) {
         item.isSelected(true);
+      } else if (item.isSelected()) {
+        var selectItem = confirm(
+          `Are you sure you want to de-select ${item.value}?`
+        );
+        if (selectItem) {
+          item.isSelected(false);
+        }
       }
-  
-     /*  if (item.length == 0) {
-        alert("Please select an item");
-        return false;
-      } else if (item.length == 1) {
-        var selectItem = confirm(
-          `Are you sure you want to select ${item[0].value}?`
-        );
-        if (selectItem) {
-          clearSelection(this.todoCard);
-          item[0].isSelected(true);
-          console.log(item);
-        }
-      } else if (item.length > 1) {
-        var selectItem = confirm(
-          `Are you sure you want to select these ${item.length} tasks?`
-        );
-        if (selectItem) {
-          clearSelection(this.todoCard);
-          item[0].isSelected(true);
-          console.log(item);
-        }
-      } */
     };
   
     //Dropzone process
@@ -269,7 +242,7 @@
       item.dragging(false);
     };
   
-    DragDropView.prototype.reorder = function (event, dragData, zoneData) {
+    DragDropView.prototype.reordered = function (event, dragData, zoneData) {
       if (dragData !== zoneData.item) {
         var zoneDataIndex = zoneData.items.indexOf(zoneData.item);
         zoneData.items.remove(dragData);
