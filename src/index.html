@@ -26,16 +26,15 @@
               data-bind="text: value, 
                         css: { 
                           dragging: dragging,
-                          isSelected: isSelected 
+                          isSelected: isSelected
                         },
                         dragZone: { name: 'simple.todoCard' },
                         dragStart: $parent.dragStart,
                         dragEnd: $parent.dragEnd,
                         click: $parent.selectToDoSingleItem, 
-                        checked: $parent.isSelected,
                         dragEvents: {
-                            accepts: 'simple',
-                            dragOver: $parent.reorder,
+                            accepts: 'simple.todoCard',
+                            dragOver: $parent.reordered,
                             data: { items: $parent.todoCard, item: $data }
                           }
                         "
@@ -76,8 +75,8 @@
                         dragEnd: $parent.dragEnd,
                         
                         dragEvents: {
-                            accepts: 'simple',
-                            dragOver: $parent.reorder,
+                            accepts: 'simple.targetInProgress',
+                            dragOver: $parent.reordered,
                             data: { items: $parent.targetInProgress, item: $data }
                           }"
             ></li>
@@ -103,8 +102,8 @@
                         dragEnd: $parent.dragEnd,
                         
                         dragEvents: {
-                            accepts: 'simple',
-                            dragOver: $parent.reorder,
+                            accepts: 'simple.targetDone',
+                            dragOver: $parent.reordered,
                             data: { items: $parent.targetDone, item: $data }
                           }"
             ></li>
