@@ -1,4 +1,4 @@
-# kanban-flax-teal
+# kanban-board
 
 Built with KnockoutJS, this simple app shows how to move tasks/tickets from 'To Do' to 'In Progress' to 'Done' via a drag drop functionality.
 
